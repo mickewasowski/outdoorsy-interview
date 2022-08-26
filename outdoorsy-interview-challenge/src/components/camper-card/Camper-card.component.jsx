@@ -1,14 +1,14 @@
 
 
-function CamperCard(){
+function CamperCard({image, heading}){
 
     return(
-        <div>
+        <div style={{display: 'flex'}}>
             <div>
-                <img style={{width: '200px', height: '200px'}} src={"https://res.cloudinary.com/outdoorsy/image/upload/v1647652038/p/rentals/286992/images/amc6qhcjhem9ekhiptdb.jpg"}/>
+                <img style={{width: '150px', height: '150px'}} src={image}/>
             </div>
             <div>
-                <h3>This is camper</h3>
+                <h3>{heading}</h3>
             </div>
         </div>
     )

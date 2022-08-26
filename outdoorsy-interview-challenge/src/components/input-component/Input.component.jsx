@@ -1,10 +1,49 @@
+import {useState, useContext, useEffect} from 'react';
+import {CamperContext} from '../../contexts/CamperContext';
 
+function Input(){   
+    const [inputString, setInputString] = useState('');
+    const [count, setCount] = useState(0);
+    const {updateCamperList} = useContext(CamperContext);
 
-function Input(){
+    useEffect(() => {
+        fetch(`https://search.outdoorsy.com/rentals?filter[keywords]=${inputString}&page[limit]=&page[offset]=`)
+        .then(res => res.json())
+        .then((result) => handleResponseData(result))
+        .catch(err => console.log(err))
+    }, [inputString]);
+
+    const handleInputChange = (e) => {
+        let text = e.target.value;
+        setInputString(text);
+    }
+
+    const handleResponseData = (result) => {
+        let {data} = result;
+        let campers = [];
+
+        if (data.length !== 0) {
+            for (const camperData of data) {
+                let {id, attributes: {name, primary_image_url: image}} = camperData;
+    
+                let camper = {
+                    id,
+                    name,
+                    image
+                };
+                
+                campers.push(camper);
+            }
+        }
+
+        setCount(campers.length);
+        updateCamperList(campers);
+    }
 
     return(
         <div>
-            <input />
+            <input onChange={handleInputChange}/>
+            <p>{count}</p>
             <button>Clear field</button>
         </div>
     )
