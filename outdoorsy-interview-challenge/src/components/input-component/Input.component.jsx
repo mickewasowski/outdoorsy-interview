@@ -1,6 +1,8 @@
 import {useState, useContext, useEffect} from 'react';
 import {CamperContext} from '../../contexts/CamperContext';
 
+import {Wrapper,InputFieldWrapper,InputField,ClearIcon, CampersCount} from './Input.styles';
+
 function Input(){   
     const [inputString, setInputString] = useState('');
     const [count, setCount] = useState(0);
@@ -16,6 +18,13 @@ function Input(){
     const handleInputChange = (e) => {
         let text = e.target.value;
         setInputString(text);
+    }
+
+    const handleClearInput = () => {
+        let input = document.getElementById('input-field');
+        input.value = '';
+
+        setInputString('');
     }
 
     const handleResponseData = (result) => {
@@ -41,11 +50,13 @@ function Input(){
     }
 
     return(
-        <div>
-            <input onChange={handleInputChange}/>
-            <p>{count}</p>
-            <button>Clear field</button>
-        </div>
+        <Wrapper>
+            <InputFieldWrapper>
+                <InputField id='input-field' onChange={handleInputChange}/>
+                <ClearIcon onClick={() => handleClearInput()}/>
+            </InputFieldWrapper>
+            <CampersCount>Campers: {count}</CampersCount>
+        </Wrapper>
     )
 }
 
