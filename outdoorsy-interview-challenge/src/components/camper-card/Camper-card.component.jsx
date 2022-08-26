@@ -1,16 +1,16 @@
-
+import {Wrapper,ImageContainer,Image, Heading} from './Camper-card.styles';
 
 function CamperCard({image, heading}){
 
     return(
-        <div style={{display: 'flex'}}>
+        <Wrapper>
+            <ImageContainer>
+                <Image src={image}/>
+            </ImageContainer>
             <div>
-                <img style={{width: '150px', height: '150px'}} src={image}/>
+                <Heading>{heading}</Heading>
             </div>
-            <div>
-                <h3>{heading}</h3>
-            </div>
-        </div>
+        </Wrapper>
     )
 }
 
