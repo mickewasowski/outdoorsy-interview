@@ -1,4 +1,4 @@
-This is an interview task with ReactJS and Context
+This is an interview task with ReactJS and Context, and Styled components
 The goal of the task was to fetch some data from an API and display it on the browser window.
 In addition, a search field was also required
 
