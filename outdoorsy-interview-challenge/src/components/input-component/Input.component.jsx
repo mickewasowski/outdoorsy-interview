@@ -33,12 +33,17 @@ function Input(){
 
         if (data.length !== 0) {
             for (const camperData of data) {
-                let {id, attributes: {name, primary_image_url: image}} = camperData;
-    
+                let {id, attributes: {name,
+                    display_vehicle_type,price_per_day,
+                    presentment_currency, primary_image_url: image}} = camperData;
+
                 let camper = {
                     id,
                     name,
-                    image
+                    image,
+                    vehicleType: display_vehicle_type,
+                    pricePerDay: price_per_day,
+                    currency: presentment_currency,
                 };
                 
                 campers.push(camper);

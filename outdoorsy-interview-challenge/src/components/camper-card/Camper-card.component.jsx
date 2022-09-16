@@ -1,6 +1,6 @@
-import {Wrapper,ImageContainer,Image, Heading} from './Camper-card.styles';
+import {Wrapper,ImageContainer,Image,DetailsContainer, Heading} from './Camper-card.styles';
 
-function CamperCard({image, heading}){
+function CamperCard({image, heading, price, type, currency}){
 
     return(
         <Wrapper>
@@ -10,6 +10,10 @@ function CamperCard({image, heading}){
             <div>
                 <Heading>{heading}</Heading>
             </div>
+            <DetailsContainer>
+                <p>Price: {price/100.00} {currency}</p>
+                <p>Type: {type}</p>
+            </DetailsContainer>
         </Wrapper>
     )
 }
