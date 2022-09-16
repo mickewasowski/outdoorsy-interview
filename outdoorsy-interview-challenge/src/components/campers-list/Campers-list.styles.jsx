@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 
 export const InputWrapper = styled.div`
     align-self: center;
+    align-items: center;
     display: flex;
     width: 50%;
     justify-content: space-around;

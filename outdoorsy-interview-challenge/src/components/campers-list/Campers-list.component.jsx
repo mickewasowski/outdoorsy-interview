@@ -29,6 +29,7 @@ function CampersList(){
     return(
         <Wrapper>
             <InputWrapper>
+                <h3>Price filter:</h3>
                 <Input type='number' placeholder="From" onChange={(e) => setFrom(Number(e.target.value))}/>
                 <Input type='number' placeholder="To" onChange={(e) => setTo(Number(e.target.value))}/>
             </InputWrapper>

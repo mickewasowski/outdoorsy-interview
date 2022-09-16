@@ -32,6 +32,10 @@ export const Image = styled.img`
 `
 
 export const DetailsContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+
     @media (min-width: 320px) AND (max-width: 1024px){
         width: 100%;
         margin: 0;
